@@ -1,17 +1,12 @@
 class Solution:
-    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+    def intersect(self, nums1: list[int], nums2: list[int]) -> list[int]:
         dict1 = {}
-        len1 = len(nums1)
-        len2 = len(nums2)
         result = []
-        for i in range(len1):
-            if dict1.get(nums1[i])!=None:
-                dict1[nums1[i]]+=1
-            else:
-                dict1[nums1[i]]=1
+        for i in nums1:
+            dict1[i] = dict1.get(i, 0) + 1
 
-        for i in range(len2):
-            if dict1.get(nums2[i])!=None and dict1.get(nums2[i])>0:
-                dict1[nums2[i]]-=1
-                result.append(nums2[i])
+        for i in nums2:
+            if dict1.get(i)!=None and dict1.get(i)>0:
+                dict1[i]-=1
+                result.append(i)
         return result
