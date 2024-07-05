@@ -25,12 +25,7 @@ class Solution:
         res = []
         minimum = 10**5+1
         while head.next != None and head.next.next != None:
-            if head.val < head.next.val and head.next.val > head.next.next.val:
-                if res and  abs(res[-1]-count) < minimum:
-                    minimum = abs(res[-1] - count)
-                res.append(count)
-                
-            elif head.val > head.next.val and head.next.val < head.next.next.val:
+            if (head.val < head.next.val and head.next.val > head.next.next.val) or (head.val > head.next.val and head.next.val < head.next.next.val):
                 if res and  abs(res[-1]-count) < minimum:
                     minimum = abs(res[-1] - count)
                 res.append(count)
